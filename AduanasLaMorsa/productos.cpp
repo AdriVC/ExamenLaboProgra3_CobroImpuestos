@@ -3,10 +3,11 @@
 #include "Cliente.h"
 #include <sstream>
 #include <string>
-
+using std::stringstream;
 using std::string;
+using std::endl;
 
-Productoss::Productos(string nombre, double volumen ,double peso ,double precio,Cliente cliente){
+Productos::Productos(string nombre, double volumen ,double peso ,double precio,Cliente* cliente){
 	this->nombre=nombre;
 	this->volumen=volumen;
 	this->peso=peso;

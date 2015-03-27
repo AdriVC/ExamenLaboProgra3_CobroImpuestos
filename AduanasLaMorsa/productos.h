@@ -11,9 +11,9 @@ class Productos{
 	double volumen;
 	double peso;
 	double precio;
-	Cliente cliente;
+    Cliente* cliente;
 public:
-	Productos(string,double,double,double,Cliente);
+    Productos(string,double,double,double,Cliente*);
 	virtual string toString()const;
 	virtual double CobrarImpuesto()=0;
 	double getVolumen()const;

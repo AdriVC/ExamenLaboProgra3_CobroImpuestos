@@ -115,7 +115,7 @@
   <widget class="QPushButton" name="button_efectuarCobro">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>170</x>
      <y>170</y>
      <width>181</width>
      <height>61</height>
@@ -131,6 +131,27 @@
    </property>
    <property name="text">
     <string>Efectuar Cobro</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="button_cancelar">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>170</y>
+     <width>131</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Cooper Black</family>
+     <pointsize>18</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Cancelar</string>
    </property>
   </widget>
  </widget>

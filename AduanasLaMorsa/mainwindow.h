@@ -3,6 +3,10 @@
 
 #include <QMainWindow>
 #include <vector>
+#include "Cliente.h"
+#include "productos.h"
+#include <string>
+using std::string;
 using std::vector;
 
 namespace Ui {
@@ -30,9 +34,7 @@ private:
     Ui::MainWindow *ui;
     vector<Cliente*> clientes;
     vector<Productos*> productos;
-    double tasaEducativos;
-    double tasaAlcoholicos;
-    double tasaLujo;
+    double* tasas;
     string historial;
 };
 

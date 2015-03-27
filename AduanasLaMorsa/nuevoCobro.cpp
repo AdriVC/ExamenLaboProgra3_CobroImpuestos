@@ -1,5 +1,7 @@
 #include "nuevoCobro.h"
 #include "ui_nuevoCobro.h"
+#include "Cliente.h"
+#include "productos.h"
 #include <vector>
 #include <QStringListModel>
 using std::vector;
@@ -7,7 +9,9 @@ using std::vector;
 nuevoCobro::nuevoCobro(vector<Cliente*>& clientes, vector<Productos*>& productos, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::nuevoCobro),
-    cancleado(false)
+    cancelado(false),
+    productos(productos),
+    clientes(clientes)
 {
     ui->setupUi(this);
     //background
@@ -24,7 +28,8 @@ nuevoCobro::nuevoCobro(vector<Cliente*>& clientes, vector<Productos*>& productos
     QStringList List;
     QString str;
     for(int i=0; i<clientes.size(); i++){
-        str = QString::fromStdString(clientes[i]->toString());
+        Cliente* cliente = this->clientes[i];
+        str = QString::fromStdString(this->clientes[i]->getNombre());
         List << str;
     }
     model->setStringList(List);
@@ -65,7 +70,7 @@ void nuevoCobro::on_comboBox_clientes_currentIndexChanged(int index)
     QStringList List;
     QString str;
     for(int i=0; i<this->productos.size(); i++){
-        if(productos.getCliente() == ui->comboBox_clientes[index]){
+        if(this->productos[i]->getCliente()->getNombre() == ui->comboBox_clientes->currentText().toStdString()){
             str = QString::fromStdString(this->productos[i]->getNombre());
             List << str;
         }

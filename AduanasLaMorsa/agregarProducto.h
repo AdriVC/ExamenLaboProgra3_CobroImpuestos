@@ -2,6 +2,10 @@
 #define AGREGARPRODUCTO_H
 
 #include <QDialog>
+#include "productos.h"
+#include "Cliente.h"
+#include <vector>
+using std::vector;
 
 namespace Ui {
 class AgregarProducto;
@@ -12,13 +16,19 @@ class AgregarProducto : public QDialog
     Q_OBJECT
 
 public:
-    explicit AgregarProducto(QWidget *parent = 0);
+    explicit AgregarProducto(vector<Cliente*>, double* tasas, QWidget *parent = 0);
     ~AgregarProducto();
-    Producto* getNuevoProducto()const;
+    Productos* getNuevoProducto()const;
+
+private slots:
+    void on_button_agregar_clicked();
 
 private:
     Ui::AgregarProducto *ui;
-    Producto* nuevo;
+    Productos* nuevo;
+    vector<Productos*> productos;
+    vector<Cliente*> clientes;
+    double* tasas;
 };
 
 #endif // AGREGARPRODUCTO_H

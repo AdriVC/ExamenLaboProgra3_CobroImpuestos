@@ -3,6 +3,8 @@
 
 #include <QDialog>
 #include <vector>
+#include "Cliente.h"
+#include "productos.h"
 using std::vector;
 
 namespace Ui {
@@ -31,6 +33,7 @@ private:
     Ui::nuevoCobro *ui;
     bool cancelado;
     vector<Productos*> productos;
+    vector<Cliente*> clientes;
 };
 
 #endif // NUEVOCOBRO_H

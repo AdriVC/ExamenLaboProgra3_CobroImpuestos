@@ -18,6 +18,9 @@ public:
     double getTasaAlcoholicos()const;
     double getTasaLujo()const;
 
+private slots:
+    void on_button_aceptar_clicked();
+
 private:
     Ui::setTasas *ui;
 };

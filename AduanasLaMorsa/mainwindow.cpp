@@ -5,16 +5,18 @@
 #include "agregarProducto.h"
 #include "historial.h"
 #include "nuevoCobro.h"
+#include <sstream>
+using std::stringstream;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
-    tasaEducativos(0.0),
-    tasaAlcoholicos(0.0),
-    tasaLujo(0.0),
     historial("")
 {
     ui->setupUi(this);
+
+
+
     //background
     QPixmap bkgnd(":/Logo.png");
     bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
@@ -24,9 +26,14 @@ MainWindow::MainWindow(QWidget *parent) :
 
     setTasas* ventanaConfigTasas = new setTasas(this);
     ventanaConfigTasas->exec();
-    tasaEducativos = ventanaConfigTasas->getTasaEducativos();
-    tasaAlcoholicos = ventanaConfigTasas->getTasaAlcoholicos();
-    tasaLujo = ventanaConfigTasas->getTasaLujo();
+    this->tasas[0] = ventanaConfigTasas->getTasaEducativos();
+    this->tasas[1] = ventanaConfigTasas->getTasaAlcoholicos();
+    this->tasas[2]= ventanaConfigTasas->getTasaLujo();
+    if(clientes.size() == 0){
+        ui->button_agregarProducto->setEnabled(false);
+    }else{
+        ui->button_agregarProducto->setEnabled(true);
+    }
 }
 
 MainWindow::~MainWindow()
@@ -36,7 +43,7 @@ MainWindow::~MainWindow()
 
 
 void MainWindow::on_button_cobrarImpuesto_clicked(){
-    nuevoCobro* ventanaNuevoCobro = new nuevoCobro(this);
+    nuevoCobro* ventanaNuevoCobro = new nuevoCobro(clientes,productos,this);
     ventanaNuevoCobro->exec();
     stringstream ss;
     ss << historial << "\n\n" << productos[ventanaNuevoCobro->getNuevoCobro()]->toString();
@@ -44,17 +51,24 @@ void MainWindow::on_button_cobrarImpuesto_clicked(){
 }
 
 void MainWindow::on_button_historial_clicked(){
-    Historial* ventanaHistorial = new Historial(this,historial);
+    Historial* ventanaHistorial = new Historial(historial,this);
     ventanaHistorial->exec();
 }
 
 
 void MainWindow::on_button_agregarProducto_clicked(){
-    AgregarProducto* ventanaAgregarProducto = new AgregarProducto(this);
+    AgregarProducto* ventanaAgregarProducto = new AgregarProducto(clientes, tasas, this);
     ventanaAgregarProducto->exec();
+    productos.push_back(ventanaAgregarProducto->getNuevoProducto());
 }
 
 void MainWindow::on_button_agregarCliente_clicked(){
     AgregarCliente* ventanaAgregarCliente = new AgregarCliente(this);
     ventanaAgregarCliente->exec();
+    clientes.push_back(ventanaAgregarCliente->getNuevoCliente());
+    if(clientes.size() == 0){
+        ui->button_agregarProducto->setEnabled(false);
+    }else{
+        ui->button_agregarProducto->setEnabled(true);
+    }
 }

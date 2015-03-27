@@ -18,14 +18,24 @@ SOURCES += main.cpp\
     agregarCliente.cpp \
     agregarProducto.cpp \
     nuevoCobro.cpp \
-    setTasas.cpp
+    setTasas.cpp \
+    Cliente.cpp \
+    educativos.cpp \
+    Prods_alcoholicos.cpp \
+    Prods_lujo.cpp \
+    productos.cpp
 
 HEADERS  += mainwindow.h \
     historial.h \
     agregarCliente.h \
     agregarProducto.h \
     nuevoCobro.h \
-    setTasas.h
+    setTasas.h \
+    Cliente.h \
+    educativos.h \
+    Prods_alcoholicos.h \
+    Prods_lujo.h \
+    productos.h
 
 FORMS    += mainwindow.ui \
     historial.ui \
