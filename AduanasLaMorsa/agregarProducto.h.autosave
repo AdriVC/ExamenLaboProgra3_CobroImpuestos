@@ -16,6 +16,9 @@ public:
     ~AgregarProducto();
     Producto* getNuevoProducto()const;
 
+private slots:
+    void on_button_agregar_clicked();
+    
 private:
     Ui::AgregarProducto *ui;
     Producto* nuevo;

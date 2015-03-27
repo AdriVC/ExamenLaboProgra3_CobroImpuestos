@@ -133,7 +133,7 @@
     <string>Efectuar Cobro</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="button_efectuarCobro_2">
+  <widget class="QPushButton" name="button_cancelar">
    <property name="geometry">
     <rect>
      <x>30</x>

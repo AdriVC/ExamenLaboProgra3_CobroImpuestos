@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <vector>
+using std::vector;
 
 namespace Ui {
 class MainWindow;
@@ -26,9 +28,12 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    vector<Cliente*> clientes;
+    vector<Productos*> productos;
     double tasaEducativos;
     double tasaAlcoholicos;
     double tasaLujo;
+    string historial;
 };
 
 #endif // MAINWINDOW_H

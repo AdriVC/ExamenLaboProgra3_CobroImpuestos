@@ -25,7 +25,7 @@ void setTasas::on_button_aceptar_clicked()
 {
     if(ui->doubleSpinBox_educativos == 0.0 || ui->doubleSpinBox_alcoholicos == 0.0 || ui->doubleSpinBox_deLujo == 0.0){
         QMessageBox msgbox;
-        msgbox.windowTitle("Error!");
+        msgbox.setWindowTitle("Error!");
         msgbox.setText("No puede tener tasas de 0.0");
         msgbox.exec();
     }else{

@@ -38,7 +38,9 @@ MainWindow::~MainWindow()
 void MainWindow::on_button_cobrarImpuesto_clicked(){
     nuevoCobro* ventanaNuevoCobro = new nuevoCobro(this);
     ventanaNuevoCobro->exec();
-    
+    stringstream ss;
+    ss << historial << "\n\n" << productos[ventanaNuevoCobro->getNuevoCobro()]->toString();
+    historial = ss.str();
 }
 
 void MainWindow::on_button_historial_clicked(){
@@ -50,6 +52,7 @@ void MainWindow::on_button_historial_clicked(){
 void MainWindow::on_button_agregarProducto_clicked(){
     AgregarProducto* ventanaAgregarProducto = new AgregarProducto(this);
     ventanaAgregarProducto->exec();
+    
 }
 
 void MainWindow::on_button_agregarCliente_clicked(){

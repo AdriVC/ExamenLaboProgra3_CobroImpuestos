@@ -11,7 +11,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow),
     tasaEducativos(0.0),
     tasaAlcoholicos(0.0),
-    tasaLujo(0.0)
+    tasaLujo(0.0),
+    historial("")
 {
     ui->setupUi(this);
     //background
@@ -37,10 +38,13 @@ MainWindow::~MainWindow()
 void MainWindow::on_button_cobrarImpuesto_clicked(){
     nuevoCobro* ventanaNuevoCobro = new nuevoCobro(this);
     ventanaNuevoCobro->exec();
+    stringstream ss;
+    ss << historial << "\n\n" << productos[ventanaNuevoCobro->getNuevoCobro()]->toString();
+    historial = ss.str();
 }
 
 void MainWindow::on_button_historial_clicked(){
-    Historial* ventanaHistorial = new Historial(this);
+    Historial* ventanaHistorial = new Historial(this,historial);
     ventanaHistorial->exec();
 }
 
