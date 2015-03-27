@@ -1,0 +1,28 @@
+#ifndef NUEVOCOBRO_H
+#define NUEVOCOBRO_H
+
+#include <QDialog>
+
+namespace Ui {
+class nuevoCobro;
+}
+
+class nuevoCobro : public QDialog
+{
+    Q_OBJECT
+
+public:
+    explicit nuevoCobro(QWidget *parent = 0);
+    ~nuevoCobro();
+
+private slots:
+    void on_button_efectuarCobro_2_clicked();
+    
+    void on_button_efectuarCobro_clicked();
+    
+private:
+    Ui::nuevoCobro *ui;
+    bool cancelado;
+};
+
+#endif // NUEVOCOBRO_H

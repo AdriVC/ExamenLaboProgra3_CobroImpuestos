@@ -1,0 +1,20 @@
+#include "agregarCliente.h"
+#include "ui_agregarCliente.h"
+
+AgregarCliente::AgregarCliente(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::AgregarCliente)
+{
+    ui->setupUi(this);
+    //background
+    QPixmap bkgnd(":/Logo.png");
+    bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+    QPalette palette;
+    palette.setBrush(QPalette::Background, bkgnd);
+    this->setPalette(palette);
+}
+
+AgregarCliente::~AgregarCliente()
+{
+    delete ui;
+}

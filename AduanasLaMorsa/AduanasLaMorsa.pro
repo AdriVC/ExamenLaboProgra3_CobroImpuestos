@@ -14,10 +14,25 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    historial.cpp
+    historial.cpp \
+    agregarCliente.cpp \
+    agregarProducto.cpp \
+    nuevoCobro.cpp \
+    setTasas.cpp
 
 HEADERS  += mainwindow.h \
-    historial.h
+    historial.h \
+    agregarCliente.h \
+    agregarProducto.h \
+    nuevoCobro.h \
+    setTasas.h
 
 FORMS    += mainwindow.ui \
-    historial.ui
+    historial.ui \
+    agregarCliente.ui \
+    agregarProducto.ui \
+    nuevoCobro.ui \
+    setTasas.ui
+
+RESOURCES += \
+    resources.qrc
