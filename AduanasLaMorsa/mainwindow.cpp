@@ -5,6 +5,7 @@
 #include "agregarProducto.h"
 #include "historial.h"
 #include "nuevoCobro.h"
+#include "productos.h"
 #include <sstream>
 #include <iostream>
 using std::cout;
@@ -46,11 +47,10 @@ MainWindow::~MainWindow()
 
 
 void MainWindow::on_button_cobrarImpuesto_clicked(){
-    nuevoCobro* ventanaNuevoCobro = new nuevoCobro(clientes,productos,this);
+    nuevoCobro* ventanaNuevoCobro = new nuevoCobro(productos,this);
     ventanaNuevoCobro->exec();
-    cout << "salio" << endl;
     stringstream ss;
-    ss << historial << "\n\n" << productos[ventanaNuevoCobro->getNuevoCobro()]->toString();
+    ss << historial << productos[ventanaNuevoCobro->getNuevoCobro()]->toString();
     historial = ss.str();
 }
 

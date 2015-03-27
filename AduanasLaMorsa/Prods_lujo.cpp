@@ -19,7 +19,7 @@ using std::stringstream;
 
 	string Prods_lujo::toString()const{
 		stringstream ss;
-		ss << "Producto de Lujo: \n" << Productos::toString() << "\n\tTasa: " << tasa;
+        ss << Productos::toString() << "\n\tProducto de Lujo: Tasa = " << tasa;
         return ss.str();
 	}
 

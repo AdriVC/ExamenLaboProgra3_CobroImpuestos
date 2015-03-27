@@ -18,7 +18,7 @@ double Prods_alcoholicos::getTasa()const{
 
 string Prods_alcoholicos::toString()const{
 		stringstream ss;
-		ss << "Producto Alcohólico: \n" << Productos::toString() << "\n\tTasa: " << tasa;
+        ss << Productos::toString() << "\n\tProducto Alcohólico: Tasa = " << tasa;
         return ss.str();
 	}
 

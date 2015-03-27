@@ -34,7 +34,7 @@ public:
     {
         if (nuevoCobro->objectName().isEmpty())
             nuevoCobro->setObjectName(QStringLiteral("nuevoCobro"));
-        nuevoCobro->resize(360, 247);
+        nuevoCobro->resize(373, 184);
         label = new QLabel(nuevoCobro);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(60, 10, 241, 41));

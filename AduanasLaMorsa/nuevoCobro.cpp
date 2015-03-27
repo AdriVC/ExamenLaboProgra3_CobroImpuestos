@@ -9,12 +9,12 @@ using std::cout;
 using std::endl;
 using std::vector;
 
-nuevoCobro::nuevoCobro(vector<Cliente*>& clientes, vector<Productos*>& productos, QWidget *parent) :
+nuevoCobro::nuevoCobro(vector<Productos*>& productos, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::nuevoCobro),
     cancelado(false),
     productos(productos),
-    clientes(clientes)
+    pos(0)
 {
     ui->setupUi(this);
     //background
@@ -24,12 +24,9 @@ nuevoCobro::nuevoCobro(vector<Cliente*>& clientes, vector<Productos*>& productos
     palette.setBrush(QPalette::Background, bkgnd);
     this->setPalette(palette);
 
-    ui->button_efectuarCobro->setEnabled(false);
-
     QStringListModel *model = new QStringListModel(this);
     QStringList List;
     QString str;
-    cout << "entro" << endl;
     for(int i=0; i<this->productos.size(); i++){
         str = QString::fromStdString(this->productos[i]->getNombre());
         List << str;
@@ -44,7 +41,7 @@ nuevoCobro::~nuevoCobro()
 }
 
 int nuevoCobro::getNuevoCobro()const{
-    return ui->comboBox_productos->currentIndex();
+    return pos;
 }
 
 void nuevoCobro::on_button_cancelar_clicked()
@@ -55,6 +52,7 @@ void nuevoCobro::on_button_cancelar_clicked()
 
 void nuevoCobro::on_button_efectuarCobro_clicked()
 {
+    pos = ui->comboBox_productos->currentIndex();
     cancelado = false;
     this->close();
 }

@@ -17,7 +17,7 @@ double Educativos::getTasa()const{
 
 string Educativos::toString()const{
 	stringstream ss;
-	ss<<" Producto Educativo: \n" << Productos::toString() << "\n\tTasa: "<<tasa;
+    ss << Productos::toString() << "\n\tProducto Educativos: Tasa = " << tasa;
 	return ss.str();
 }
 

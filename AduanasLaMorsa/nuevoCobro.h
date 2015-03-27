@@ -16,7 +16,7 @@ class nuevoCobro : public QDialog
     Q_OBJECT
 
 public:
-    explicit nuevoCobro(vector<Cliente*>&, vector<Productos*>&, QWidget *parent = 0);
+    explicit nuevoCobro(vector<Productos*>&, QWidget *parent = 0);
     ~nuevoCobro();
     int getNuevoCobro()const;
 
@@ -31,7 +31,7 @@ private:
     Ui::nuevoCobro *ui;
     bool cancelado;
     vector<Productos*> productos;
-    vector<Cliente*> clientes;
+    int pos;
 };
 
 #endif // NUEVOCOBRO_H
