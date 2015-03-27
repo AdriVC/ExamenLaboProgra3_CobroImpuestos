@@ -13,7 +13,6 @@ using std::endl;
 AgregarProducto::AgregarProducto(vector<Cliente*> clientes, double* tasas, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AgregarProducto),
-    productos(productos),
     clientes(clientes),
     tasas(tasas)
 {
@@ -28,7 +27,7 @@ AgregarProducto::AgregarProducto(vector<Cliente*> clientes, double* tasas, QWidg
     QStringListModel *model = new QStringListModel(this);
     QStringList List;
     QString str;
-    for(int i=0; i<this->clientes.size(); i++){
+    for(int i=0; i<(int)this->clientes.size(); i++){
         str = QString::fromStdString(this->clientes[i]->getNombre());
         List << str;
     }
@@ -56,17 +55,27 @@ void AgregarProducto::on_button_agregar_clicked()
         msgbox.exec();
     }else{
         if(ui->comboBox_tipoProductos->currentIndex() == 0){
-            nuevo = new Educativos(ui->lineEdit_nombre->text().toStdString(),ui->doubleSpinBox_volumen->value(),
-                                   ui->doubleSpinBox_peso->value(),ui->doubleSpinBox_precio->value(),
-                                   clientes[ui->comboBox_clientes->currentIndex()], tasas[0]);
+            nuevo = new Educativos(ui->lineEdit_nombre->text().toStdString(),
+                                   ui->doubleSpinBox_volumen->value(),
+                                   ui->doubleSpinBox_peso->value(),
+                                   ui->doubleSpinBox_precio->value(),
+                                   clientes[ui->comboBox_clientes->currentIndex()],
+                                    tasas[0]);
+
         }else if(ui->comboBox_tipoProductos->currentIndex() == 1){
-            nuevo = new Prods_alcoholicos(ui->lineEdit_nombre->text().toStdString(),ui->doubleSpinBox_volumen->value(),
-                                   ui->doubleSpinBox_peso->value(),ui->doubleSpinBox_precio->value(),
-                                   clientes[ui->comboBox_clientes->currentIndex()], tasas[1]);
-        }else{
+            nuevo = new Prods_alcoholicos(ui->lineEdit_nombre->text().toStdString(),
+                                          ui->doubleSpinBox_volumen->value(),
+                                          ui->doubleSpinBox_peso->value(),
+                                          ui->doubleSpinBox_precio->value(),
+                                          clientes[ui->comboBox_clientes->currentIndex()],
+                                          tasas[1]);
+        }else if(ui->comboBox_tipoProductos->currentIndex() == 2){
             nuevo = new Prods_lujo(ui->lineEdit_nombre->text().toStdString(),ui->doubleSpinBox_volumen->value(),
                                    ui->doubleSpinBox_peso->value(),ui->doubleSpinBox_precio->value(),
                                    clientes[ui->comboBox_clientes->currentIndex()], tasas[2]);
+        } else{
+            cout << "esta malo" << endl;
         }
+        this->close();
     }
 }

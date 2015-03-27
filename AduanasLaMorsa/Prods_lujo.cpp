@@ -23,3 +23,7 @@ using std::stringstream;
         return ss.str();
 	}
 
+    double Prods_lujo::CobrarImpuesto()const{
+        return (Productos::getPeso()+Productos::getVolumen())*tasa;
+    }
+

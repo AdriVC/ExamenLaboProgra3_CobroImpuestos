@@ -4,6 +4,9 @@
 #include "productos.h"
 #include <vector>
 #include <QStringListModel>
+#include <iostream>
+using std::cout;
+using std::endl;
 using std::vector;
 
 nuevoCobro::nuevoCobro(vector<Cliente*>& clientes, vector<Productos*>& productos, QWidget *parent) :
@@ -21,19 +24,18 @@ nuevoCobro::nuevoCobro(vector<Cliente*>& clientes, vector<Productos*>& productos
     palette.setBrush(QPalette::Background, bkgnd);
     this->setPalette(palette);
 
-    ui->comboBox_productos->setEnabled(false);
     ui->button_efectuarCobro->setEnabled(false);
 
     QStringListModel *model = new QStringListModel(this);
     QStringList List;
     QString str;
-    for(int i=0; i<clientes.size(); i++){
-        Cliente* cliente = this->clientes[i];
-        str = QString::fromStdString(this->clientes[i]->getNombre());
+    cout << "entro" << endl;
+    for(int i=0; i<this->productos.size(); i++){
+        str = QString::fromStdString(this->productos[i]->getNombre());
         List << str;
     }
     model->setStringList(List);
-    ui->comboBox_clientes->setModel(model);
+    ui->comboBox_productos->setModel(model);
 }
 
 nuevoCobro::~nuevoCobro()
@@ -42,14 +44,7 @@ nuevoCobro::~nuevoCobro()
 }
 
 int nuevoCobro::getNuevoCobro()const{
-    int indice = -1;
-    for(int i=0; i<productos.size(); i++){
-        if(productos[i]->getNombre() == productos[ui->comboBox_productos->currentIndex()]->getNombre()){
-            indice = i;
-            break;
-        }
-    }
-    return indice;
+    return ui->comboBox_productos->currentIndex();
 }
 
 void nuevoCobro::on_button_cancelar_clicked()
@@ -64,21 +59,6 @@ void nuevoCobro::on_button_efectuarCobro_clicked()
     this->close();
 }
 
-void nuevoCobro::on_comboBox_clientes_currentIndexChanged(int index)
-{
-    QStringListModel *model = new QStringListModel(this);
-    QStringList List;
-    QString str;
-    for(int i=0; i<this->productos.size(); i++){
-        if(this->productos[i]->getCliente()->getNombre() == ui->comboBox_clientes->currentText().toStdString()){
-            str = QString::fromStdString(this->productos[i]->getNombre());
-            List << str;
-        }
-    }
-    model->setStringList(List);
-    ui->comboBox_productos->setModel(model);
-    ui->comboBox_productos->setEnabled(true);
-}
 
 void nuevoCobro::on_comboBox_productos_currentIndexChanged(int index)
 {

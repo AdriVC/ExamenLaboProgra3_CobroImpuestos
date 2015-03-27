@@ -12,6 +12,7 @@ class Prods_lujo:public Productos{
 public:
     Prods_lujo(string,double,double,double,Cliente*,double);
 	double getTasa()const;
-	string toString()const;
+    virtual string toString()const;
+    virtual double CobrarImpuesto()const;
 };
 #endif

@@ -26,7 +26,6 @@ private slots:
 private:
     Ui::AgregarProducto *ui;
     Productos* nuevo;
-    vector<Productos*> productos;
     vector<Cliente*> clientes;
     double* tasas;
 };

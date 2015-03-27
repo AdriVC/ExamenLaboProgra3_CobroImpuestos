@@ -25,9 +25,7 @@ class Ui_nuevoCobro
 {
 public:
     QLabel *label;
-    QLabel *label_2;
     QLabel *label_3;
-    QComboBox *comboBox_clientes;
     QComboBox *comboBox_productos;
     QPushButton *button_efectuarCobro;
     QPushButton *button_cancelar;
@@ -46,34 +44,26 @@ public:
         font.setBold(true);
         font.setWeight(75);
         label->setFont(font);
-        label_2 = new QLabel(nuevoCobro);
-        label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(40, 80, 71, 16));
+        label_3 = new QLabel(nuevoCobro);
+        label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setGeometry(QRect(30, 60, 91, 16));
         QFont font1;
         font1.setFamily(QStringLiteral("Cooper Black"));
         font1.setPointSize(18);
         font1.setBold(true);
         font1.setWeight(75);
-        label_2->setFont(font1);
-        label_3 = new QLabel(nuevoCobro);
-        label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setGeometry(QRect(20, 120, 91, 16));
         label_3->setFont(font1);
-        comboBox_clientes = new QComboBox(nuevoCobro);
-        comboBox_clientes->setObjectName(QStringLiteral("comboBox_clientes"));
-        comboBox_clientes->setGeometry(QRect(120, 75, 211, 31));
-        comboBox_clientes->setFont(font1);
         comboBox_productos = new QComboBox(nuevoCobro);
         comboBox_productos->setObjectName(QStringLiteral("comboBox_productos"));
-        comboBox_productos->setGeometry(QRect(120, 120, 211, 31));
+        comboBox_productos->setGeometry(QRect(130, 60, 211, 31));
         comboBox_productos->setFont(font1);
         button_efectuarCobro = new QPushButton(nuevoCobro);
         button_efectuarCobro->setObjectName(QStringLiteral("button_efectuarCobro"));
-        button_efectuarCobro->setGeometry(QRect(170, 170, 181, 61));
+        button_efectuarCobro->setGeometry(QRect(180, 110, 181, 61));
         button_efectuarCobro->setFont(font1);
         button_cancelar = new QPushButton(nuevoCobro);
         button_cancelar->setObjectName(QStringLiteral("button_cancelar"));
-        button_cancelar->setGeometry(QRect(30, 170, 131, 61));
+        button_cancelar->setGeometry(QRect(40, 110, 131, 61));
         button_cancelar->setFont(font1);
 
         retranslateUi(nuevoCobro);
@@ -85,7 +75,6 @@ public:
     {
         nuevoCobro->setWindowTitle(QApplication::translate("nuevoCobro", "Dialog", 0));
         label->setText(QApplication::translate("nuevoCobro", "Cobrar Impesto", 0));
-        label_2->setText(QApplication::translate("nuevoCobro", "Cliente:", 0));
         label_3->setText(QApplication::translate("nuevoCobro", "Producto:", 0));
         button_efectuarCobro->setText(QApplication::translate("nuevoCobro", "Efectuar Cobro", 0));
         button_cancelar->setText(QApplication::translate("nuevoCobro", "Cancelar", 0));

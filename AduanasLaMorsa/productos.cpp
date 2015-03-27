@@ -17,8 +17,13 @@ Productos::Productos(string nombre, double volumen ,double peso ,double precio,C
 
 string Productos::toString()const{
 	stringstream ss;
-	ss<<"Nombre: "<<nombre<<endl<<"\t Volumen: "<<volumen<<endl<<"\t Peso: "<<peso<<endl<<"\t Precio: "<<precio<<endl<<"\t Cliente: "<<cliente;
+    ss<<"Nombre: "<<nombre<<endl<<"\t Volumen: "<<volumen<<endl<<"\t Peso: "<<peso<<endl<<"\t Precio: "
+            <<precio<<endl<<"\t Cliente: "<<cliente;
 	ss.str();
+}
+
+double Productos::CobrarImpuesto(){
+    return 0.0;
 }
 
 double Productos::getVolumen()const{

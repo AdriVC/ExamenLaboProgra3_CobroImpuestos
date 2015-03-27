@@ -34,7 +34,7 @@ private:
     Ui::MainWindow *ui;
     vector<Cliente*> clientes;
     vector<Productos*> productos;
-    double* tasas;
+    double tasas[3];
     string historial;
 };
 

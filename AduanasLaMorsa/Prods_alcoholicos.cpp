@@ -23,6 +23,6 @@ string Prods_alcoholicos::toString()const{
 	}
 
 double Prods_alcoholicos::CobrarImpuesto()const{
-    return (peso+volumen)*tasa;
+    return (Productos::getPeso()+Productos::getVolumen())*tasa;
 }
 

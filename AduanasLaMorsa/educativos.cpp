@@ -22,5 +22,5 @@ string Educativos::toString()const{
 }
 
 double Educativos::CobrarImpuesto()const{
-    return volumen*tasa;
+    return Productos::getVolumen()*tasa;
 }

@@ -6,6 +6,9 @@
 #include "historial.h"
 #include "nuevoCobro.h"
 #include <sstream>
+#include <iostream>
+using std::cout;
+using std::endl;
 using std::stringstream;
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -45,6 +48,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_button_cobrarImpuesto_clicked(){
     nuevoCobro* ventanaNuevoCobro = new nuevoCobro(clientes,productos,this);
     ventanaNuevoCobro->exec();
+    cout << "salio" << endl;
     stringstream ss;
     ss << historial << "\n\n" << productos[ventanaNuevoCobro->getNuevoCobro()]->toString();
     historial = ss.str();

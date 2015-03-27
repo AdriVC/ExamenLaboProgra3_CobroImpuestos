@@ -25,8 +25,6 @@ private slots:
 
     void on_button_efectuarCobro_clicked();
 
-    void on_comboBox_clientes_currentIndexChanged(int index);
-
     void on_comboBox_productos_currentIndexChanged(int index);
 
 private:
