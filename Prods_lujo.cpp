@@ -20,6 +20,10 @@ using std::stringstream;
 	string Prods_lujo::toString()const{
 		stringstream ss;
 		ss << "Producto de Lujo: \n" << Productos::toString() << "\n\tTasa: " << tasa;
-		retrun ss.str();
+		return ss.str();
+	}
+
+	double cobrarImpuesto()const{
+		return Productos::volumen*Productos::tasa;
 	}
 

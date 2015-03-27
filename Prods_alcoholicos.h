@@ -12,5 +12,6 @@ public:
 	Prods_alcohoicos(string,double,double,double,Cliente,double);
 	double getTasa()const;
 	string toString()const;
+	virtual double cobrarImpuesto()const;
 };
 #endif
