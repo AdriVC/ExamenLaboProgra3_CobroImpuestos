@@ -34,3 +34,7 @@ double Productos::getPrecio()const{
 Cliente* Productos::getCliente()const{
 	return cliente;
 }
+
+string Productos::getNombre()const{
+	return nombre;
+}

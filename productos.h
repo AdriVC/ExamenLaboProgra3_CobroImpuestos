@@ -20,5 +20,6 @@ public:
 	double getPeso()const;
 	double getPrecio()const;
 	Cliente* getCliente()const;
+	string getNombre()const;
 };
 #endif
